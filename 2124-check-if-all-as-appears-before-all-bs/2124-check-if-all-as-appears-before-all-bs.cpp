@@ -1,22 +1,24 @@
 class Solution {
 public:
     bool checkString(string s) {
-        int count=0;
-        
-        for(int i=0;i<s.length();i++){
-            if(s[i]=='a' ){
-                count++;
+        string temp="";
+        int c1=0,c2=0;
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='a'){
+                c1++;
             }
         }
-        if(count==0){
+        for(int i=0;i<s.size();i++){
+            if(s[i]=='a'){
+                temp.push_back(s[i]);
+                c2++;
+            }
+            else
+                break;
+        }
+        if(c1==c2)
             return 1;
-        }
-        for(int i=0;i<count;i++){
-            if(s[i]=='b'){
-                return 0;
-            }
-        }
-        return 1;
-       
+        else 
+            return 0;
     }
 };
