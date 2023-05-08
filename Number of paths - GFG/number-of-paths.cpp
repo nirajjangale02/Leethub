@@ -7,13 +7,12 @@ using namespace std;
 long long  numberOfPaths(int m, int n)
 {
     // Code Here
-    if(m==1 and n==1){
-        return 0;
-    }
-    if(m==1 or n==1){
-        return 1;
-    }
-    return numberOfPaths(m-1,n) + numberOfPaths(m,n-1);
+    vector<int> dp(n,1);
+    for(int i=0;i<m-1;i++){
+        for(int j=1;j<n;j++){
+            dp[j]+=dp[j-1];
+        }
+    } return dp[n-1];
 }
 
 //{ Driver Code Starts.
